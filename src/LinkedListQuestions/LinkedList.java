@@ -19,6 +19,9 @@ public class LinkedList {
 
     }
     public void insertNode(int nodeValue){
+        if (head == null){
+            createLinkedList(nodeValue);
+        }
         Node newNode = new Node();
         newNode.value = nodeValue;
         newNode.next = null;
