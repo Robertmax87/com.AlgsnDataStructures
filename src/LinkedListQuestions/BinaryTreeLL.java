@@ -62,6 +62,9 @@ public class BinaryTreeLL {
              removes the first value, then adds two values, removes right first
              then adds two values removes left, then adds two values removes right;
              then keeps removing values and printing values once all of the values are added...
+             Adds root, removes root, prints out value, adds left and right elements if they are not null;
+             removes and prints them out in order of left to right.
+             root -> left -> right -> left -> right ->left --ect;
              *
              */
 
@@ -88,6 +91,8 @@ public class BinaryTreeLL {
             /**This part is needed in order to traverse the tree and check to see if the node we
              * are looking for is the one we are looking at. PresentValue is a node we are removing
              * then looking at/checking to see if it is our value.
+             * Checks if the node is the value we're looking for. Then goes from left to right adding to the
+             * queue and checking if what we need is the value we remove at the beginning of the while loop;
              */
             if (presentNode.value.equals(node.value)) {
                 System.out.print("The Node is found");
@@ -100,7 +105,7 @@ public class BinaryTreeLL {
                     queue.add(presentNode.right);
                 }
             }
-            System.ar
+
         }
         System.out.print("The node isn't found");
     }
