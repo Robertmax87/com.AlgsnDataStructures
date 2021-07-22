@@ -8,4 +8,8 @@ public class BinaryNode {
     public BinaryNode right;
     public int height;
 
+    public BinaryNode(){
+        this.height = 0;
+    }
+
 }
