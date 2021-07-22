@@ -58,5 +58,46 @@ public class bSearchTree {
         inOrder(root.left);
         inOrder(root.right);
     }
-    /** Insert a Node into a Binary Search Tree. How will we do this? Well
+    /** Insert a Node into a Binary Search Tree. How will we do this? Well I am expecting that we will use a level order
+     * traversal to traverse the list comparing the node we want to insert to the root-nodes. If less than we go to the
+     * left, if greater than we go to the right.
+     */
+    public TreeNode insert(TreeNode currentNode, int value){
+        /** If the root is null; then you would need to create another treeNode or tree in general and just
+         * put the value in. This way we can always insert a Node no matter what. Otherwise we
+         * move to the left and the right of the of the node we are examining looking for the correct insert point.
+         */
+        if (currentNode == null){
+            TreeNode newNode = new TreeNode();
+            newNode.value = value;
+            System.out.print("value successfully inserted");
+            return newNode;
+        }else if (value <= currentNode.value){
+            /**This is a recursive call "Insert Node" and then if the Node is null we insert.
+             * so the currentnode
+             */
+            currentNode.left = insert(currentNode,value);
+            return currentNode;
+        } else {
+            currentNode.right = insert(currentNode,value);
+            return currentNode;
+        }
+
+    }
+
+    /** main insert method, Inserts the root and the value into the other method
+     * the root is the currentNode that is being moved about in the method above.
+     * The method above only needs the value, it ends up making a new Node once we point and travel enough
+     * for it to be null.
+     */
+
+    public void inserter(int value){
+        insert(root, value);
+    }
+    public int getHeight(TreeNode node){
+        if (node == null){
+            return 0;
+        }
+        return node.height;
+    }
 }
