@@ -111,4 +111,44 @@ public class AVLtree {
         newRoot.height = 1 + Math.max(getHeight(displaced.left), getHeight(displaced.right));
         return newRoot;
     }
+    public int getBalance(TreeNode node){
+        if (node == null){
+            return 0;
+        }
+        /**Recursively goes down the line until gets to the bottom right node and the bottom left node.
+         * Calls getHeight on both of these and then returns the balance which should not be more or less than
+         * {-1,0,1}
+         */
+        return getHeight(node.left) - getHeight(node.right);
+    }
+    public TreeNode insertNode(TreeNode node, int value){
+        if (node == null){
+            TreeNode newNode = new TreeNode();
+            newNode.value = value;
+            newNode.height = 1;
+            return newNode;
+        } else if(node.value < value){
+            node.left = insert(node.left,value);
+
+        } else {
+            node.right = insert(node.right, value);
+        }
+        node.height = 1 + Math.max(getHeight(node.left), getHeight(node.right));
+        int balance = getBalance(node);
+        if (balance > 1 && value < node.left.value){
+            rotateRight(node);
+        }
+        if (balance > 1 && value > node.right.value){
+            node.left = rotateLeft(node);
+            return rotateRight(node);
+        }
+        if(balance < -1 && value > node.right.value){
+            return rotateLeft(node);
+        }
+        if(balance < -1 && value < node.right.value) {
+            node.right = rotateRight(node.right);
+            return rotateLeft(node);
+        }
+        return node;
+    }
 }
