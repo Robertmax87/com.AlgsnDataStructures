@@ -1,0 +1,11 @@
+package Tries;
+import java.util.HashMap;
+import java.util.Map;
+public class TrieNode {
+    public Map<Character, TrieNode> children;
+    public boolean end;
+    public TrieNode(){
+        children = new HashMap<>();
+        end = false;
+    }
+}
