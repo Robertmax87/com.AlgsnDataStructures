@@ -36,6 +36,8 @@ public class MergeSorty {
          */
         System.arraycopy(nums, i, nums, tempIndex + start, mid - i);
         System.arraycopy(tempNums, 0, nums, start, tempIndex);
+        // System.arraycopy(tempNums, i, nums, tempIndex + start, mid - i);
+        //System.arraycopy(nums, 0, nums, start, tempIndex);
     }
 }
 
