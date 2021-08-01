@@ -12,25 +12,24 @@ public class MergeSort {
         if(end - start < 2){
             return;
         }
-        int mid = (start + end)/2;
-        merge(nums, start, mid );
-        merge(nums, mid, end);
+        int mid = (start + end) / 2;
+        merge(nums,start,mid);
+        merge(nums,mid,end);
         sort(nums, start, mid, end);
     }
-    public static void sort(int[] nums, int start, int mid, int end){
-        if(nums[mid - 1] <= nums[mid]){
+    public static void sort(int[] arr, int start, int mid, int end){
+        if(arr[mid - 1] <= arr[mid]){
             return;
         }
         int i = start;
         int j = mid;
         int tempIndex = 0;
-        int[] tempArray = new int[end - start];
+        int[] tempArr = new int[end - start];
         while(i < mid && j < end){
-            tempArray[tempIndex++] = nums[i] <= nums[j] ? nums[i++] : nums[j++];
+            tempArr[tempIndex++] = arr[i] <= arr[j] ? arr[i++] : arr[j++];
         }
-        System.arraycopy(nums, i,nums, start + tempIndex, mid - i);
-        System.arraycopy(tempArray, 0, nums, start, tempIndex);
-
-
+        System.arraycopy(tempArr, i, arr, start + tempIndex, mid - i);
+        System.arraycopy(arr, 0, arr,start,tempIndex );
     }
+
 }
