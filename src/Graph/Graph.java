@@ -13,13 +13,15 @@ public class Graph {
     }
     public void addUndirectedEdge(int i, int j){
         //initialize edges between each of these nodes to each other because these edges are undirected... j -> i && i -> j
+       // [0,0,0,0,0,0,0,1]
+       // [0,0,0,0,0,0,1,0]
         adjacencyMatrix[i][j] = 1;
         adjacencyMatrix[j][i] = 1;
     }
     public void addDirectedEdge(int direced, int j){
         adjacencyMatrix[direced][j] = 1;
     }
-    //Gets neighbors of any given node
+    //Gets neighbors of any given node, pass in the node we want to start with...
     public ArrayList<GraphNode> getNeighbors(GraphNode node){
         //instantiate a list that will hold our neighbor nodes;
         ArrayList<GraphNode> neighbors = new ArrayList<GraphNode>();
@@ -29,13 +31,19 @@ public class Graph {
         for(int i = 0; i < adjacencyMatrix.length; i++){
            //remember that if we have A 1 value here then we have a neighbor
             if(adjacencyMatrix[nodeIndex][i] == 1){
-                //add it to the nodeList that we instantiated above...
+                /**check the entire neighborhood, the i increments in the nodes row, this is how it checks for neighbors...
+                //add it to the nodeList that we instantiated above...**/
                 neighbors.add(nodeList.get(i));
                 //add the neighbors to the list and then we will use this list later...
             }
         }
         return neighbors;
     }
+
+    /**Add all of the nodes neighbors to a queue and then visit all of them and change their boolean
+     * values to visited. After that continue through all of the
+     * @param node
+     */
     //The node where we start our traversal
     public void bfsVisit(GraphNode node){
         // we will start a Linked List that will act as a queue;
@@ -59,7 +67,7 @@ public class Graph {
         }
 
     }
-    public void bfsEr(GraphNode node){
+    /**public void bfsEr(GraphNode node){
         Queue<GraphNode> queue = new LinkedList<>();
         queue.add(node);
         while(!queue.isEmpty()){
@@ -68,6 +76,7 @@ public class Graph {
             //queue.add(neighbor);
         }
     }
+     **/
     public void bFS(){
         //visit the nodes;
         for(GraphNode node: nodeList){
