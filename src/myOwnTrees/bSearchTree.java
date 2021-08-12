@@ -28,7 +28,7 @@ public class bSearchTree {
 
     }
     public int search(TreeNode rooter){
-        Queue<TreeNode> leveler = new LinkedList();
+        Queue<TreeNode> leveler = new LinkedList<>();
         leveler.add(root);
         int node = 1;
         while(!leveler.isEmpty()){

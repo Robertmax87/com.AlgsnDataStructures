@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ListGraph {
-    ArrayList<ListGraphNode> nodeList = new ArrayList<ListGraphNode>();
+    ArrayList<ListGraphNode> nodeList = new ArrayList<>();
 
     public ListGraph(ArrayList<ListGraphNode> nodeList){
         this.nodeList = nodeList;

@@ -46,22 +46,32 @@ public class Graph {
         while(!queue.isEmpty()){
             //remove the nodes, count them as visited...
             GraphNode curr = queue.remove(0);
-            curr.visited = true;
+            curr.isVisited = true;
             //our list gets the neighbors list that we returned above...
             ArrayList<GraphNode> neighbors = getNeighbors(curr);
             //for the neighbors in the neighbor list
             for(GraphNode neighbor: neighbors) {
                 //if the neighbor has not been visited add the neighbor to the "queue"
-                if (!neighbor.visited){
+                if (!neighbor.isVisited){
                     queue.add(neighbor);
                 }
             }
+        }
+
+    }
+    public void bfsEr(GraphNode node){
+        Queue<GraphNode> queue = new LinkedList<>();
+        queue.add(node);
+        while(!queue.isEmpty()){
+            GraphNode curr = queue.remove();
+
+            //queue.add(neighbor);
         }
     }
     public void bFS(){
         //visit the nodes;
         for(GraphNode node: nodeList){
-            if(!node.visited){
+            if(!node.isVisited){
                 bfsVisit(node);
             }
         }

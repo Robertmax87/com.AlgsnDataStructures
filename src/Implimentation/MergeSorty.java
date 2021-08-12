@@ -2,8 +2,8 @@ package Implimentation;
 
 public class MergeSorty {
     public static void main(String[] args){
-        int[] nums = {1,2,23,1,4,23,5,245,24,52,46,24};
-        merge(nums, 1,12);
+        int[] nums = {5,2,23,1,4,23,5,245,24,52,46,24};
+        merge(nums, 0,12);
         for(int i = 0; i < nums.length; i++){
             System.out.print(nums[i] + ",");
         }
